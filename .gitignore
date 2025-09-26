@@ -1,0 +1,34 @@
+# Compiled Code
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven/Gradle Directories
+/target/
+/build/
+
+# Eclipse IDE Files
+.classpath
+.project
+.settings/
+*.launch
+*.log
+/.metadata/
+/.git/
+
+# IntelliJ/Other IDE Files (Good to have)
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Docker Files to Ignore (keep docker-compose.yml and Dockerfile)
+# Ignore the PostgreSQL data volume directory, if you created one outside of docker-compose
+# volumes: db_data:/var/lib/postgresql/data
+# If using a separate volume on the host, list it here if you don't want it versioned
+/jdk-11.0.2/

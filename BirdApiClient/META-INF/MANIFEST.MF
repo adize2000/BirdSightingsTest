@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BirdApiClient
+Bundle-SymbolicName: com.velocity.birdapi.client
+Bundle-Version: 1.0.0.qualifier
+Export-Package: com.velocity.birdapi.client,
+ com.velocity.itest.avian.dto
+Bundle-Activator: com.velocity.birdapi.client.Activator
+Require-Bundle: org.eclipse.swt,
+ org.eclipse.jface,
+ org.eclipse.core.runtime,
+ com.fasterxml.jackson.core.jackson-annotations;bundle-version="[2.13.2, 3.0.0)",
+ com.fasterxml.jackson.core.jackson-core;bundle-version="[2.13.2, 3.0.0)",
+ com.fasterxml.jackson.core.jackson-databind;bundle-version="[2.13.2, 3.0.0)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: com.velocity.birdapi.client

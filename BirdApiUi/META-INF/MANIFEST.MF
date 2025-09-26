@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: BirdApiUi
+Bundle-SymbolicName: com.velocity.birdapi.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: com.velocity.birdapi.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ com.velocity.birdapi.client;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: com.velocity.birdapi.ui

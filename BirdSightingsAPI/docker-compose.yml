@@ -1,0 +1,39 @@
+#version: '3.8'
+
+services:
+  db:
+    image: postgres:13
+    container_name: birdsightings_db
+    restart: always
+    environment:
+      - POSTGRES_USER=avian
+      - POSTGRES_PASSWORD=aviansecret
+      - POSTGRES_DB=birddb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U avian"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  app:
+    build: . # Tells Docker Compose to look for a Dockerfile in the current directory
+    container_name: birdsightings_api
+    ports:
+      - "8080:8080" # Map host port 8080 to container port 8080
+    environment:
+      # Use the 'db' service name as the host, as defined in this file
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/birddb
+      - SPRING_DATASOURCE_USERNAME=avian
+      - SPRING_DATASOURCE_PASSWORD=aviansecret
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update # Or 'none' for production
+    depends_on:
+      db:
+        condition: service_healthy # Wait for the DB to be healthy before starting the app
+    restart: always
+
+volumes:
+  db_data:
